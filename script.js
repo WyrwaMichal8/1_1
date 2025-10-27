@@ -36,4 +36,27 @@
 
   }
 
+  function przenies(evt) {
+    evt.dataTransfer.setData("text/html", evt.target.outerHTML);
+    evt.dataTransfer.setData("parent", evt.target.parentElement.id);
+  }
+
+  function upusc(evt, src) {
+    evt.preventDefault();
+    const data = evt.dataTransfer.getData("text/html");
+    if (evt.dataTransfer.getData("parent") === "ex3_one") {
+      src.innerHTML = "";
+      evt.target.innerHTML = data;
+    }
+  }
+
+  const skad = document.getElementById("ex3_one");
+  const dokad = document.getElementById("ex3_two");
+
+  skad.addEventListener("dragstart", przenies);
+  dokad.addEventListener("dragover", (evt) => evt.preventDefault());
+  dokad.addEventListener("drop", (evt) => upusc(evt, skad));
+
+
+
 })();
