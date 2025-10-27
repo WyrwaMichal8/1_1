@@ -20,7 +20,6 @@
 
     if (number.value.length != 9) {
       log.textContent = "Długość numeru musi być równa 9 ";
-      //log.textContent = string(number.value.lenght);
     }
 
     else if (number.value.match(/[a-zA-Z]/)) {
